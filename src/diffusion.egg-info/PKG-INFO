@@ -1,0 +1,13 @@
+Metadata-Version: 2.4
+Name: diffusion
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: numpy>=2.2.6
+Requires-Dist: torch>=2.7.0
+Requires-Dist: torchvision>=0.22.0
+Requires-Dist: tqdm>=4.67.1
+
+# diffusion
+Implementation of DDPM
