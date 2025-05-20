@@ -38,6 +38,3 @@ class DenoisingDiffusionModel(nn.Module):
                 
             x_t = (1 / self.sqrt_alphas_t[t]) * (x_t - ((1 - self.alphas_t[t]) / self.sqrt_1_minus_alpha_bar_t[t]) * self.unet(x_t, t))
         return x_t
-
-
-#### Sampling
