@@ -1,5 +1,7 @@
 from torch import nn
 import torch
+
+
 class DenoisingDiffusionModel(nn.Module):
     
     def __init__(self,
@@ -21,7 +23,7 @@ class DenoisingDiffusionModel(nn.Module):
     def loss(self, x_0: torch.Tensor, t: torch.Tensor):
         """Loss function for the denoising diffusion model."""
         eps = torch.randn_like(x_0)
-        x_t = self.sqrt_alpha_bar_t[t] * x_0 + self.sqrt_1_minus_alpha_bar_t[t] * eps
+        x_t = self.sqrt_alpha_bar_t[t][:, None, None, None] * x_0 + self.sqrt_1_minus_alpha_bar_t[t][:, None, None, None] * eps
         eps_theta = self.unet(x_t, t)
         loss = nn.functional.mse_loss(eps, eps_theta)
         return loss
